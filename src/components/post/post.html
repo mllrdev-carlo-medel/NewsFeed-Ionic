@@ -1,0 +1,38 @@
+<ion-card>
+  <ion-item>
+    <ion-row>
+      <ion-col class="col-left">
+        <h1>{{ post.Name | titlecase}}</h1>
+        <p>{{ post.Date }}</p>
+    </ion-col>
+    <ion-col class="col-right">
+      <ion-row>
+        <div [hidden]="!owner">
+          <button (click)="edit()" class="action-button">edit</button>
+          <button (click)="deletePost()"class="action-button">delete</button>
+        </div>
+      </ion-row>
+    </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-card-content>
+    <pre>{{ post.Content }}</pre>
+  </ion-card-content>
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-start clear small (click)="showComments()">
+        <ion-icon name="text"></ion-icon>
+        <div>{{comments.length }} Comment(s)</div>
+      </button>
+    </ion-col>
+  </ion-row>
+  <div [hidden]="hideComments">
+    <ion-row>
+      <input type="text" placeholder="Write a comment" [(ngModel)]="comment">
+      <button (click)="postComment()" class="action-post">write</button>
+    </ion-row>
+    <ion-list class="comment" *ngFor="let comment of comments">
+      <comment [comment]="comment" (reloadComments)="getComments()"></comment>
+    </ion-list>
+  </div>
+</ion-card>

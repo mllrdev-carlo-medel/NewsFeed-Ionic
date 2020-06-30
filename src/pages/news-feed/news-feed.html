@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      News Feed
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-row>
+      <ion-textarea class="post-content" [(ngModel)]="content" type="text" placeholder="What's on your mind." style="resize: none !important;"></ion-textarea>
+      <button class="action-post" (click)="post()">Post</button>
+    </ion-row>
+  </ion-card>
+
+  <ion-list *ngFor="let post of posts">
+    <post [post]="post"></post>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-card class="comment-card">
+  <ion-item>
+    <ion-row>
+      <ion-col class="col-left">
+        <h3>{{ comment.Name | titlecase}}</h3>
+        <p style="font-size:12px">{{ comment.Date }}</p>
+      </ion-col>
+      <ion-col class="col-right">
+        <ion-row>
+          <div [hidden]="!owner">
+            <button class="action-button" (click)="edit()">edit</button>
+            <button class="action-button" (click)="deleteComment()">delete</button>
+          </div>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-card-content>
+    <ion-textarea  readonly="true" [value]="comment.Content"></ion-textarea>
+  </ion-card-content>
+</ion-card>

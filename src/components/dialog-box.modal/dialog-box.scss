@@ -1,0 +1,25 @@
+.post-content {
+  display: flex;
+  flex-direction: column;
+  height: 100% !important;
+  resize: none !important;
+}
+
+.action-button {
+  margin-left: 10px;
+  padding: 6px;
+}
+
+.div-center {
+  position: absolute;
+  margin-top: 10px;
+  right: 10px;
+}
+
+.ion-card-style {
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+  height: 90% !important;
+  margin: 0 !important;
+}
